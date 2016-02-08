@@ -1,0 +1,61 @@
+---
+title: "Subsetting Data CH2"
+author: "S Richard Smith"
+date: "February 7, 2016"
+output: html_document
+---
+
+# Subsetting Data
+
+## The Dataset
+
+I've chosen to work with the dataset from the UCI Machine Learning Repository on Bank Marketing Data (found [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing#)).
+
+The data is from a Portugese banking institution. It captures information about a marketing campaign they undertook.
+
+The data is stored in several formats. I used the most complete data set as a starting point ([bank-additional-full.csv](https://www.dropbox.com/s/732hq892axmrk49/bank-additional-full.csv?dl=0)).
+
+
+## Dataset Summary
+
+Using R, I loaded the data from the file.
+
+```{r}
+BankDat <- read.csv(file = 'C:/CUNY/Class Material/Github/Subsetting-Datasets-607ch2/bank-additional/bank-additional-full.csv',header = TRUE,sep = ";",quote = "\"",dec = ".",row.names = NULL)
+```
+
+Doing some summary analysis, I discovered the following:
+
+* The data has the following number of rows and columns:
+```{r}
+dim(BankDat)
+```
+
+* The data has the following fields:
+```{r}
+names(BankDat)
+```
+
+
+## The Scenario
+
+I am simulated a question from a colleague about whether or not the survey is representative of our banking customer base at large. As such, I need a subset of the data that includes only the demographic information from the full data set. I used the following to generate that subset and did the same summary review as above plus a more detailed look by field:
+
+```{r}
+BankDatSub<-BankDat[,1:8]
+```
+
+* Dimensions
+```{r}
+dim(BankDatSub)
+```
+
+* Field Names
+```{r}
+names(BankDatSub)
+```
+
+* Summary by field
+```{r}
+summary(BankDatSub)
+```
